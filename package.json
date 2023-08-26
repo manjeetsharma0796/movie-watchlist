@@ -1,0 +1,23 @@
+{
+  "name": "movie-watchlist",
+  "version": "1.0.0",
+  "description": "Contains movie list to watch later.",
+  "main": "index.js",
+  "scripts": {
+    "test": "node --test",
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "lint": "npx eslint .",
+    "coverage": "npx nyc node --test"
+  },
+  "author": "manjeet",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^8.48.0",
+    "nyc": "^15.1.0",
+    "supertest": "^6.3.3"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
