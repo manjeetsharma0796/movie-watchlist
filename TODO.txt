@@ -19,3 +19,35 @@ Now for each user, it will look like:
 3. Person can delete movie from his/her list
 
 4. Person can only edit to his/her own list
+
+----------
+starting with single user 
+
+--------------
+model structure
+
+watchListController
+      1. user = entity
+      2. storage = entity
+
+      methods
+      1. registeration
+      2. addMovie(userID, movieID)
+      3. deleteMovie(userID, movieID)
+
+user
+      movieList = array
+
+      methods
+      1. addMovie(movieID)
+      2. deleteMovie(movieID)
+
+
+movie
+      1. name = string
+      2. watched = boolean value
+      3. recommended = boolean value
+
+      methods
+      updateWatchStatus(boolean)
+      updateRecommendation(boolean)
