@@ -2,9 +2,11 @@ class Movie {
   #name;
   #isWatched;
   #isRecommended;
+  #movieID;
 
-  constructor(name, isWatched = false, isRecommended = false) {
+  constructor(name, movieID, isWatched = false, isRecommended = false) {
     this.#name = name;
+    this.#movieID = movieID;
     this.#isWatched = isWatched;
     this.#isRecommended = isRecommended;
   }
@@ -22,6 +24,7 @@ class Movie {
       name: this.#name,
       isWatched: this.#isWatched,
       isRecommended: this.#isRecommended,
+      movieID: this.#movieID,
     };
   }
 }
