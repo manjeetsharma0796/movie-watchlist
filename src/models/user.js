@@ -17,6 +17,10 @@ class User {
     this.#moviesCount = this.#moviesCount + 1;
   }
 
+  #findMovie(movieID) {
+    return this.#movies.find((movie) => movieID === movie.movieID);
+  }
+
   get id() {
     return this.#userID;
   }
@@ -40,6 +44,16 @@ class User {
 
   deleteMovie(movieID) {
     this.#movies = this.#movies.filter((movie) => movieID !== movie.movieID);
+  }
+
+  updateWatchStatus(movieID, isWatched) {
+    const movie = this.#findMovie(movieID);
+    movie.updateWatchStatus(isWatched);
+  }
+
+  updateRecommendation(movieID, isRecommended) {
+    const movie = this.#findMovie(movieID);
+    movie.updateRecommendation(isRecommended);
   }
 }
 

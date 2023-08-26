@@ -66,4 +66,28 @@ describe("User", () => {
       assert.deepStrictEqual(user.details, expectedDetails);
     });
   });
+
+  describe("updateWatchStatus", () => {
+    it("should update watch status of movie to provided value", () => {
+      const user = new User("Jeremy", 0);
+
+      user.addMovie("Ted", false, false);
+      assert.strictEqual(user.movieList[0].isWatched, false);
+
+      user.updateWatchStatus(0, true);
+      assert.strictEqual(user.movieList[0].isWatched, true);
+    });
+  });
+
+  describe("updateRecommendation", () => {
+    it("should update recommendation of movie to provided value", () => {
+      const user = new User("Jeremy", 0);
+
+      user.addMovie("Ted", false, false);
+      assert.strictEqual(user.movieList[0].isRecommended, false);
+
+      user.updateRecommendation(0, true);
+      assert.strictEqual(user.movieList[0].isRecommended, true);
+    });
+  });
 });
