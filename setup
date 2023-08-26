@@ -4,4 +4,4 @@ echo "-----Setting up environment-----"
 
 npm install
 
-mv pre-commit .git/hooks/pre-commit.sample
+cp pre-commit .git/hooks/
