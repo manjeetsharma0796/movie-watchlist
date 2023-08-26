@@ -36,7 +36,9 @@ watchListController
       3. deleteMovie(userID, movieID)
 
 user
-      movieList = array
+      username
+      userID
+      movieList = array 
 
       methods
       1. addMovie(movieID)

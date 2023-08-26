@@ -1,10 +1,15 @@
 const { Movie } = require("./movie");
 
 class User {
+  // eslint-disable-next-line no-unused-private-class-members
+  #username;
+  #userID;
   #movies;
   #moviesCount;
 
-  constructor() {
+  constructor(username, userID) {
+    this.#username = username;
+    this.#userID = userID;
     this.#movies = [];
     this.#moviesCount = 0;
   }
@@ -21,7 +26,12 @@ class User {
     this.#incrementMoviesCount();
   }
 
-  get moviesDetails() {
+  get id() {
+    const id = this.#userID;
+    return id;
+  }
+
+  get movieList() {
     return this.#movies.map((movie) => movie.details);
   }
 }

@@ -8,7 +8,7 @@ describe("User", () => {
       const user = new User();
 
       user.addMovie("Social123", false, false);
-      assert.deepStrictEqual(user.moviesDetails, [
+      assert.deepStrictEqual(user.movieList, [
         {
           name: "Social123",
           isWatched: false,
