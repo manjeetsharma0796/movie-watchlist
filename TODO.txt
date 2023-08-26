@@ -53,3 +53,18 @@ movie
       methods
       updateWatchStatus(boolean)
       updateRecommendation(boolean)
+
+
+movieList: 
+ [{
+     name: "Pulp Fiction",
+     isWatched: false,
+     isRecommended: false,
+     movieID: 0,
+ },
+ {
+     name: "Night Yorker",
+     isWatched: false,
+     isRecommended: false,
+     movieID: 1,
+ }]

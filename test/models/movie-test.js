@@ -12,7 +12,6 @@ describe("Movie", () => {
       assert.deepStrictEqual(movie.details.isWatched, false);
 
       movie.updateWatchStatus(true);
-
       assert.deepStrictEqual(movie.details.isWatched, true);
     });
   });
@@ -25,7 +24,6 @@ describe("Movie", () => {
       assert.deepStrictEqual(movie.details.isRecommended, false);
 
       movie.updateRecommendation(true);
-
       assert.deepStrictEqual(movie.details.isRecommended, true);
     });
   });

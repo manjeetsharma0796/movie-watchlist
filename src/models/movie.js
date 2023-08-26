@@ -11,21 +11,25 @@ class Movie {
     this.#isRecommended = isRecommended;
   }
 
+  get movieID() {
+    return this.#movieID;
+  }
+
+  get details() {
+    return {
+      name: this.#name,
+      movieID: this.#movieID,
+      isWatched: this.#isWatched,
+      isRecommended: this.#isRecommended,
+    };
+  }
+
   updateWatchStatus(isWatched) {
     this.#isWatched = isWatched;
   }
 
   updateRecommendation(isRecommended) {
     this.#isRecommended = isRecommended;
-  }
-
-  get details() {
-    return {
-      name: this.#name,
-      isWatched: this.#isWatched,
-      isRecommended: this.#isRecommended,
-      movieID: this.#movieID,
-    };
   }
 }
 
