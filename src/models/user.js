@@ -1,7 +1,6 @@
 const { Movie } = require("./movie");
 
 class User {
-  // eslint-disable-next-line no-unused-private-class-members
   #username;
   #userID;
   #movies;
@@ -18,6 +17,19 @@ class User {
     this.#moviesCount = this.#moviesCount + 1;
   }
 
+  get id() {
+    return this.#userID;
+  }
+
+  get movieList() {
+    return this.#movies.map((movie) => movie.details);
+  }
+
+  get details() {
+    const watchList = this.#movies.map((movie) => movie.details);
+    return { userID: this.#userID, username: this.#username, watchList };
+  }
+
   addMovie(name, isWatched, isRecommended) {
     const movieID = this.#movies.length;
     const movie = new Movie(name, movieID, isWatched, isRecommended);
@@ -26,13 +38,8 @@ class User {
     this.#incrementMoviesCount();
   }
 
-  get id() {
-    const id = this.#userID;
-    return id;
-  }
-
-  get movieList() {
-    return this.#movies.map((movie) => movie.details);
+  deleteMovie(movieID) {
+    this.#movies = this.#movies.filter((movie) => movieID !== movie.movieID);
   }
 }
 
