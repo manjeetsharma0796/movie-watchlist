@@ -1,0 +1,21 @@
+Movie Watchlist
+
+Page will contain, multiple person watchlist, 
+you can see the movies they have watched or going to watch
+
+Now when a person click his/her name on list of persons watchlist
+a new page will open with movie list
+
+Now for each user, it will look like: 
+
+1. Contains list of movies with status and recommended tag.
+
+2. Person can add movie with details like
+      > name(required)
+      > language(required)
+      > genre(optional)
+      > status(optional)
+      > recommended(optional)
+3. Person can delete movie from his/her list
+
+4. Person can only edit to his/her own list
