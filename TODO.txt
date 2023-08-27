@@ -68,3 +68,9 @@ movieList:
      isRecommended: false,
      movieID: 1,
  }]
+
+ -----------
+ making login page
+
+ for start set username and id in cookie 
+ later encrpted token will be provided and set as token

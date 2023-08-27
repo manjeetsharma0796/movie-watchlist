@@ -1,0 +1,35 @@
+<html>
+  <head>
+    <title>Movie Watchlist</title>
+    <link rel="stylesheet" href="/style/index.css" />
+    <script>
+      const parseCookies = () => {
+        return Object.fromEntries(
+          document.cookie.split("; ").map((rawCookie) => rawCookie.split("="))
+        );
+      };
+      const checkForUsername = (loginElement) => {
+        if (document.cookie) {
+          const { username } = document.cookie;
+          const cookies = parseCookies();
+
+          const userElement = document.createElement("p");
+          userElement.innerText = `Welcome ${cookies.username}`;
+          userElement.id = "login";
+          loginElement.replaceWith(userElement);
+        }
+      };
+
+      window.onload = () => {
+        const loginElement = document.querySelector("#login");
+        checkForUsername(loginElement);
+      };
+    </script>
+  </head>
+  <body>
+    <section class="page">
+      <h2><u> Movie watchlist</u></h2>
+      <a href="/login" id="login">Login</a>
+    </section>
+  </body>
+</html>
