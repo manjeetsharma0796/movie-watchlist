@@ -21,6 +21,16 @@ class User {
     return this.#movies.find((movie) => movieID === movie.movieID);
   }
 
+  getWatchStatus(movieID) {
+    const movie = this.#findMovie(movieID);
+    return movie.isWatched;
+  }
+
+  getRecommendation(movieID) {
+    const movie = this.#findMovie(movieID);
+    return movie.isRecommended;
+  }
+
   get id() {
     return this.#userID;
   }
