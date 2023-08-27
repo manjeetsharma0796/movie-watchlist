@@ -9,10 +9,10 @@ describe("Movie", () => {
       const movieID = 0;
       const movie = new Movie("Antman", movieID, false, false);
 
-      assert.deepStrictEqual(movie.details.isWatched, false);
+      assert.deepStrictEqual(movie.isWatched, false);
 
       movie.updateWatchStatus(true);
-      assert.deepStrictEqual(movie.details.isWatched, true);
+      assert.deepStrictEqual(movie.isWatched, true);
     });
   });
 
@@ -21,10 +21,10 @@ describe("Movie", () => {
       const movieID = 0;
       const movie = new Movie("Antman", movieID, false, false);
 
-      assert.deepStrictEqual(movie.details.isRecommended, false);
+      assert.deepStrictEqual(movie.isRecommended, false);
 
       movie.updateRecommendation(true);
-      assert.deepStrictEqual(movie.details.isRecommended, true);
+      assert.deepStrictEqual(movie.isRecommended, true);
     });
   });
 });

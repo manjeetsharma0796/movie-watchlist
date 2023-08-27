@@ -15,6 +15,14 @@ class Movie {
     return this.#movieID;
   }
 
+  get isWatched() {
+    return this.#isWatched;
+  }
+
+  get isRecommended() {
+    return this.#isRecommended;
+  }
+
   get details() {
     return {
       name: this.#name,
