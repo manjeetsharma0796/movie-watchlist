@@ -39,14 +39,14 @@ describe("User", () => {
   });
 
   describe("details", () => {
-    it("should provide watchlist, username of user", () => {
+    it("should provide watchlist of user", () => {
       const user = new User("Jerry", 0);
 
       user.addMovie("Social123", false, false);
       user.addMovie("Delhite", false, false);
       const expectedDetails = {
         username: "Jerry",
-        watchList: [
+        watchlist: [
           {
             isRecommended: false,
             isWatched: false,
@@ -67,7 +67,7 @@ describe("User", () => {
   });
 
   describe("updateWatchStatus", () => {
-    it("should update watch status of movie to provided value", () => {
+    it("should update watch status of movie using provided value", () => {
       const user = new User("Jeremy", 0);
 
       user.addMovie("Ted", false, false);
@@ -79,7 +79,7 @@ describe("User", () => {
   });
 
   describe("updateRecommendation", () => {
-    it("should update recommendation of movie to provided value", () => {
+    it("should update recommendation of movie using provided value", () => {
       const user = new User("Jeremy", 0);
 
       user.addMovie("Ted", false, false);

@@ -38,8 +38,8 @@ class User {
   }
 
   get details() {
-    const watchList = this.#movies.map((movie) => movie.details);
-    return { username: this.#username, watchList };
+    const watchlist = this.#movies.map((movie) => movie.details);
+    return { username: this.#username, watchlist };
   }
 
   addMovie(name, isWatched, isRecommended) {
@@ -62,6 +62,13 @@ class User {
   updateRecommendation(movieID, isRecommended) {
     const movie = this.#findMovie(movieID);
     movie.updateRecommendation(isRecommended);
+  }
+
+  restore(watchlist) {
+    watchlist.forEach((movieDetail) => {
+      const { name, isWatched, isRecommended } = movieDetail;
+      this.addMovie(name, isWatched, isRecommended);
+    });
   }
 }
 

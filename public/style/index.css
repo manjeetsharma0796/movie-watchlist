@@ -10,10 +10,9 @@
   margin: 3em auto;
   padding-left: 3em;
   width: 60%;
-  border: 1px solid red;
 }
 
-#login {
+#profile {
   position: absolute;
   top: 1em;
   right: 1em;
@@ -25,10 +24,35 @@ section > header {
 
 .watchlist-form {
   display: flex;
-  column-gap: 1em;
+  column-gap: 2em;
   line-height: 2em;
+  border: 1px solid red;
+  border-radius: 1em;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  width: 65%;
+  margin: 0 auto;
 }
 
 input#movie {
   height: 40px;
+}
+
+#movies {
+  border: 1px solid red;
+  width: 50%;
+  margin: 0 auto;
+}
+
+#movie-details {
+  display: flex;
+  margin: 0 auto;
+  justify-content: center;
+}
+
+#movie-details * {
+  line-height: 2em;
+  width: 20%;
+  text-align: center;
 }

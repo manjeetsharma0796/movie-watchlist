@@ -10,14 +10,16 @@
         <h2><u> Movie watchlist</u></h2>
       </header>
 
-      <a href="/login" id="login">Login</a>
+      <section id="profile">
+        <a href="/login" id="login">Login</a>
+      </section>
 
       <form action="/" method="post" class="watchlist-form">
         <section>
           <input
             type="text"
-            name="movie"
-            id="movie"
+            name="name"
+            id="name"
             placeholder="Add movie name to watchlist"
             size="30"
           />
@@ -37,6 +39,13 @@
       </form>
     </section>
 
-    <section>__MOVIE_LIST__</section>
+    <section id="movies">
+      <section id="movie-details">
+        <p>Movie Name</p>
+        <p>Watched</p>
+        <p>Recommended</p>
+      </section>
+      __MOVIE_LIST__
+    </section>
   </body>
 </html>

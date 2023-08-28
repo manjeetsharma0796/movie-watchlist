@@ -57,6 +57,20 @@ class UserList {
     const user = this.#findUser(username);
     user.updateRecommendation(movieID, isRecommended);
   }
+
+  restore(usersWatchlist) {
+    usersWatchlist.forEach((userDetails) => {
+      const { username, watchlist } = userDetails;
+      this.addUser(username);
+      const user = this.#findUser(username);
+
+      user.restore(watchlist);
+    });
+  }
+
+  isUserExist(username) {
+    return this.#userList.some((user) => user.username === username);
+  }
 }
 
 module.exports = { UserList };

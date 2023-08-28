@@ -3,18 +3,24 @@ const parseCookies = () => {
     document.cookie.split("; ").map((rawCookie) => rawCookie.split("="))
   );
 };
-const checkForUsername = (loginElement) => {
-  if (document.cookie) {
-    const cookies = parseCookies();
 
+const checkUsernameAndRender = () => {
+  if (document.cookie) {
+    const loginElement = document.querySelector("#login");
+    
+    loginElement.innerText = "Logout";
+    loginElement.href = "/logout";
+    
+    const cookies = parseCookies();
+    
+    const userSection = document.querySelector("#profile");
     const userElement = document.createElement("p");
     userElement.innerText = `Welcome ${cookies.username}`;
     userElement.id = "login";
-    loginElement.replaceWith(userElement);
+    userSection.prepend(userElement);
   }
 };
 
 window.onload = () => {
-  const loginElement = document.querySelector("#login");
-  checkForUsername(loginElement);
+  checkUsernameAndRender();
 };
