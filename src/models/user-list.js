@@ -2,65 +2,59 @@ const { User } = require("./user");
 
 class UserList {
   #userList;
-  #userCount;
 
   constructor() {
     this.#userList = [];
-    this.#userCount = 0;
   }
 
-  #incrementUserCount() {
-    this.#userCount += 1;
-  }
-
-  #findUser(userID) {
-    return this.#userList.find((user) => user.id === userID);
+  #findUser(username) {
+    return this.#userList.find((user) => {
+      return user.username === username;
+    });
   }
 
   get usersDetails() {
     return this.#userList.map((user) => user.details);
   }
 
-  getUserMovieList(userID) {
-    const user = this.#findUser(userID);
+  getUserMovieList(username) {
+    const user = this.#findUser(username);
+
     return user.movieList;
   }
 
-  getWatchStatus(movieID, userID) {
-    const user = this.#findUser(userID);
+  getWatchStatus(movieID, username) {
+    const user = this.#findUser(username);
     return user.getWatchStatus(movieID);
   }
 
-  getRecommendation(movieID, userID) {
-    const user = this.#findUser(userID);
+  getRecommendation(movieID, username) {
+    const user = this.#findUser(username);
     return user.getRecommendation(movieID);
   }
 
   addUser(username) {
-    const userID = this.#userCount;
-    const user = new User(username, userID);
-
+    const user = new User(username);
     this.#userList.push(user);
-    this.#incrementUserCount();
   }
 
-  addMovie(movieName, userID, isWatched, isRecommended) {
-    const user = this.#findUser(userID);
+  addMovie(movieName, username, isWatched, isRecommended) {
+    const user = this.#findUser(username);
     user.addMovie(movieName, isWatched, isRecommended);
   }
 
-  deleteMovie(movieID, userID) {
-    const user = this.#findUser(userID);
+  deleteMovie(movieID, username) {
+    const user = this.#findUser(username);
     user.deleteMovie(movieID);
   }
 
-  updateWatchStatus(movieID, userID, isWatched) {
-    const user = this.#findUser(userID);
+  updateWatchStatus(movieID, username, isWatched) {
+    const user = this.#findUser(username);
     user.updateWatchStatus(movieID, isWatched);
   }
 
-  updateRecommendation(movieID, userID, isRecommended) {
-    const user = this.#findUser(userID);
+  updateRecommendation(movieID, username, isRecommended) {
+    const user = this.#findUser(username);
     user.updateRecommendation(movieID, isRecommended);
   }
 }

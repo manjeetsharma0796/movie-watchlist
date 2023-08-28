@@ -39,13 +39,12 @@ describe("User", () => {
   });
 
   describe("details", () => {
-    it("should provide watchlist, userID, username of user", () => {
+    it("should provide watchlist, username of user", () => {
       const user = new User("Jerry", 0);
 
       user.addMovie("Social123", false, false);
       user.addMovie("Delhite", false, false);
       const expectedDetails = {
-        userID: 0,
         username: "Jerry",
         watchList: [
           {

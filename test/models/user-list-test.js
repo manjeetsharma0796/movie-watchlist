@@ -4,11 +4,12 @@ const { UserList } = require("../../src/models/user-list");
 
 describe("UserList", () => {
   describe("getUserMovieList", () => {
-    it("should get user details using provided userID", () => {
+    it("should get user details using provided username", () => {
+      const username = "Tom";
       const userList = new UserList();
-      userList.addUser("Tom");
+      userList.addUser(username);
 
-      assert.deepStrictEqual(userList.getUserMovieList(0), []);
+      assert.deepStrictEqual(userList.getUserMovieList(username), []);
     });
   });
 
@@ -23,11 +24,12 @@ describe("UserList", () => {
 
   describe("addMovie", () => {
     it("should add movie to user watchlist", () => {
+      const username = "Jerry";
       const userList = new UserList();
-      userList.addUser("Jerry");
-      userList.addMovie("Pulp Fiction", 0, false, false);
+      userList.addUser(username);
+      userList.addMovie("Pulp Fiction", "Jerry", false, false);
 
-      assert.deepStrictEqual(userList.getUserMovieList(0), [
+      assert.deepStrictEqual(userList.getUserMovieList(username), [
         {
           name: "Pulp Fiction",
           isWatched: false,
@@ -40,12 +42,13 @@ describe("UserList", () => {
 
   describe("deleteMovie", () => {
     it("should remove movie from user watchlist", () => {
+      const username = "Jerry";
       const userList = new UserList();
-      userList.addUser("Jerry");
-      userList.addMovie("Pulp Fiction", 0, false, false);
-      userList.addMovie("Batman", 0, false, false);
+      userList.addUser(username);
+      userList.addMovie("Pulp Fiction", username, false, false);
+      userList.addMovie("Batman", username, false, false);
 
-      userList.deleteMovie(0, 0);
+      userList.deleteMovie(0, username);
 
       const expectedMovieList = [
         {
@@ -56,39 +59,42 @@ describe("UserList", () => {
         },
       ];
 
-      assert.deepStrictEqual(userList.getUserMovieList(0), expectedMovieList);
+      assert.deepStrictEqual(
+        userList.getUserMovieList(username),
+        expectedMovieList
+      );
     });
   });
 
   describe("updateWatchStatus", () => {
     it("should update watch status of provided movieID of the user", () => {
       const movieID = 0;
-      const userID = 0;
+      const username = "Jerry";
 
       const userList = new UserList();
 
-      userList.addUser("Jerry");
-      userList.addMovie("Pulp Fiction", movieID, false, false);
-      assert.strictEqual(userList.getWatchStatus(movieID, userID), false);
+      userList.addUser(username);
+      userList.addMovie("Pulp Fiction", username, false, false);
+      assert.strictEqual(userList.getWatchStatus(movieID, username), false);
 
-      userList.updateWatchStatus(movieID, userID, true);
-      assert.strictEqual(userList.getWatchStatus(movieID, userID), true);
+      userList.updateWatchStatus(movieID, username, true);
+      assert.strictEqual(userList.getWatchStatus(movieID, username), true);
     });
   });
 
   describe("updateRecommendation", () => {
     it("should update recommendation of provided movieID of the user", () => {
       const movieID = 0;
-      const userID = 0;
+      const username = "Jerry";
 
       const userList = new UserList();
 
-      userList.addUser("Jerry");
-      userList.addMovie("Pulp Fiction", movieID, false, false);
-      assert.strictEqual(userList.getRecommendation(movieID, userID), false);
+      userList.addUser(username);
+      userList.addMovie("Pulp Fiction", username, false, false);
+      assert.strictEqual(userList.getRecommendation(movieID, username), false);
 
-      userList.updateRecommendation(movieID, userID, true);
-      assert.strictEqual(userList.getRecommendation(movieID, userID), true);
+      userList.updateRecommendation(movieID, username, true);
+      assert.strictEqual(userList.getRecommendation(movieID, username), true);
     });
   });
 });
