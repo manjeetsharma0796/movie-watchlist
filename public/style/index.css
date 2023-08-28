@@ -7,11 +7,28 @@
 
 .page {
   text-align: center;
-  margin-top: 3em;
+  margin: 3em auto;
+  padding-left: 3em;
+  width: 60%;
+  border: 1px solid red;
 }
 
 #login {
   position: absolute;
   top: 1em;
   right: 1em;
+}
+
+section > header {
+  margin-bottom: 4em;
+}
+
+.watchlist-form {
+  display: flex;
+  column-gap: 1em;
+  line-height: 2em;
+}
+
+input#movie {
+  height: 40px;
 }

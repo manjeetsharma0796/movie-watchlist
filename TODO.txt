@@ -73,4 +73,8 @@ movieList:
  making login page
 
  for start set username and id in cookie 
- later encrpted token will be provided and set as token
+ later encrypted token will be provided and set as token
+
+
+-------------
+login have to check if user exists or not

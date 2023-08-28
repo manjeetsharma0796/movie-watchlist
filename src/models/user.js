@@ -2,13 +2,11 @@ const { Movie } = require("./movie");
 
 class User {
   #username;
-  #userID;
   #movies;
   #moviesCount;
 
-  constructor(username, userID) {
+  constructor(username) {
     this.#username = username;
-    this.#userID = userID;
     this.#movies = [];
     this.#moviesCount = 0;
   }
@@ -31,8 +29,8 @@ class User {
     return movie.isRecommended;
   }
 
-  get id() {
-    return this.#userID;
+  get username() {
+    return this.#username;
   }
 
   get movieList() {
@@ -41,7 +39,7 @@ class User {
 
   get details() {
     const watchList = this.#movies.map((movie) => movie.details);
-    return { userID: this.#userID, username: this.#username, watchList };
+    return { username: this.#username, watchList };
   }
 
   addMovie(name, isWatched, isRecommended) {

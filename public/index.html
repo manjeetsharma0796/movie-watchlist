@@ -2,13 +2,41 @@
   <head>
     <title>Movie Watchlist</title>
     <link rel="stylesheet" href="/style/index.css" />
-    <script src="/script/index.js">
-    </script>
+    <script src="/script/index.js"></script>
   </head>
   <body>
     <section class="page">
-      <h2><u> Movie watchlist</u></h2>
+      <header>
+        <h2><u> Movie watchlist</u></h2>
+      </header>
+
       <a href="/login" id="login">Login</a>
+
+      <form action="/" method="post" class="watchlist-form">
+        <section>
+          <input
+            type="text"
+            name="movie"
+            id="movie"
+            placeholder="Add movie name to watchlist"
+            size="30"
+          />
+        </section>
+
+        <section>
+          <label for="isWatched">Watched</label>
+          <input type="checkbox" name="isWatched" id="isWatched" />
+        </section>
+
+        <section>
+          <label for="isRecommended">Recommended</label>
+          <input type="checkbox" name="isRecommended" id="isRecommended" />
+        </section>
+
+        <input type="submit" value="Add To Watchlist" />
+      </form>
     </section>
+
+    <section>__MOVIE_LIST__</section>
   </body>
 </html>
