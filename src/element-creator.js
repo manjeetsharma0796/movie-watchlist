@@ -1,5 +1,10 @@
 const createMovieListElement = (movieList) => {
-  const icons = {
+  const isWatchedIcon = {
+    true: "✔️",
+    false: "⤬",
+  };
+
+  const recommendationIcon = {
     true: "👍",
     false: "👎",
   };
@@ -9,8 +14,8 @@ const createMovieListElement = (movieList) => {
       ({ name, isWatched, isRecommended }) =>
         `<section id="movie-details">
           <p>${name}</p> 
-          <p>${icons[isWatched]} </p>
-          <p>${icons[isRecommended]}</p>
+          <p>${isWatchedIcon[isWatched]} </p>
+          <p>${recommendationIcon[isRecommended]}</p>
         </section>`
     )
     .join("");

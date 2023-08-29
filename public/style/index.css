@@ -3,13 +3,17 @@
   margin: 0;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-size: 20px;
 }
 
 .page {
   text-align: center;
   margin: 3em auto;
-  padding-left: 3em;
   width: 60%;
+}
+
+h1 {
+  font-size: 1.5em;
 }
 
 #profile {
@@ -26,12 +30,12 @@ section > header {
   display: flex;
   column-gap: 2em;
   line-height: 2em;
-  border: 1px solid red;
+  border: 2px solid #2882db;
   border-radius: 1em;
   text-align: center;
   align-items: center;
   justify-content: center;
-  width: 65%;
+  width: 85%;
   margin: 0 auto;
 }
 
@@ -40,9 +44,10 @@ input#movie {
 }
 
 #movies {
-  border: 1px solid red;
+  border: 2px solid #4080cd;
   width: 50%;
   margin: 0 auto;
+  border-radius: 1em;
 }
 
 #movie-details {
@@ -52,7 +57,9 @@ input#movie {
 }
 
 #movie-details * {
-  line-height: 2em;
+  font-size: 1em;
+  line-height: 3em;
   width: 20%;
   text-align: center;
+  border-bottom: 1px solid grey;
 }

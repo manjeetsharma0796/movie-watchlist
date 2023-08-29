@@ -5,7 +5,6 @@ const { parseCookie } = require("../../src/middleware/cookie-parser");
 describe("cookieParser", () => {
   it("should be empty if no cookie passed", () => {
     const emptyFn = () => {};
-
     const request = { headers: {} };
 
     parseCookie(request, emptyFn, emptyFn);
