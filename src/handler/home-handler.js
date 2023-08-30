@@ -3,8 +3,6 @@ const fs = require("fs");
 const { generateMovieElement } = require("../element-creator");
 const { updateDatabase } = require("../database");
 
-const ROOT_DIR = process.env.PWD;
-
 const render = (req, res, filePath) => {
   fs.readFile(filePath, "utf-8", (err, rawTemplate) => {
     if (err) {
@@ -21,11 +19,6 @@ const render = (req, res, filePath) => {
 
     res.send(homeTemplate);
   });
-};
-
-const responseHandler = {
-  onSuccess: () => res.redirect("/"),
-  onError: () => res.status(500).end(),
 };
 
 const handleHome = (req, res) => {
@@ -48,11 +41,11 @@ const handleHome = (req, res) => {
     status[isRecommended]
   );
 
-  updateDatabase(userList.usersDetails, responseHandler);
+  updateDatabase(userList.usersDetails, res);
 };
 
 const serveHome = (req, res) => {
-  const filePath = `${ROOT_DIR}/public/index.html`;
+  const filePath = `${req.app.ROOT_DIR}/public/index.html`;
   render(req, res, filePath);
 };
 

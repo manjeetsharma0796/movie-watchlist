@@ -14,15 +14,15 @@ const readWatchlist = () => {
   return JSON.parse(watchlist);
 };
 
-const updateDatabase = (usersWatchlist, responseHandler) => {
+const updateDatabase = (usersWatchlist, response) => {
   fs.writeFile(DATABASE_PATH, JSON.stringify(usersWatchlist), (err) => {
     if (err) {
       console.log("updateDatabase error in write:", err);
-      responseHandler.onError();
+      response.status(500).end();
       return;
     }
 
-    responseHandler.onSuccess();
+    response.redirect("/");
   });
 };
 

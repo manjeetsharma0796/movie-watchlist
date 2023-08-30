@@ -98,4 +98,72 @@ describe("UserList", () => {
       assert.strictEqual(userList.getRecommendation(movieID, username), true);
     });
   });
+
+  describe("restore", () => {
+    it("should restore movie watchlist for all users", () => {
+      const usersWatchList = [
+        {
+          username: "Jerry",
+          watchlist: [
+            {
+              name: "Dark Knight",
+              movieID: 1,
+              isWatched: false,
+              isRecommended: false,
+            },
+          ],
+        },
+        {
+          username: "Tom",
+          watchlist: [
+            {
+              name: "Mandolorian",
+              movieID: 1,
+              isWatched: false,
+              isRecommended: false,
+            },
+          ],
+        },
+      ];
+      const userList = new UserList();
+      userList.restore(usersWatchList);
+
+      const expectedUserList = [
+        {
+          username: "Jerry",
+          watchlist: [
+            {
+              isRecommended: false,
+              isWatched: false,
+              movieID: 0,
+              name: "Dark Knight",
+            },
+          ],
+        },
+        {
+          username: "Tom",
+          watchlist: [
+            {
+              isRecommended: false,
+              isWatched: false,
+              movieID: 0,
+              name: "Mandolorian",
+            },
+          ],
+        },
+      ];
+
+      assert.deepStrictEqual(userList.usersDetails, expectedUserList);
+    });
+  });
+
+  describe("isUserExist", () => {
+    it("should tell if user exists", () => {
+      const userList = new UserList();
+      userList.addUser("Jerry");
+
+      assert.strictEqual(userList.isUserExist("Jerry"), true);
+      assert.strictEqual(userList.isUserExist("Tom"), false);
+    });
+  });
 });

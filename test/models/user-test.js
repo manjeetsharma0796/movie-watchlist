@@ -90,4 +90,21 @@ describe("User", () => {
       assert.strictEqual(user.movieList[0].isRecommended, true);
     });
   });
+  describe("restore", () => {
+    it("should restore user movie watchlist", () => {});
+    const watchlist = [
+      {
+        name: "star wars",
+        movieID: 0,
+        isWatched: false,
+        isRecommended: false,
+      },
+    ];
+    const user = new User("Jeremy", 0);
+    user.restore(watchlist);
+
+    assert.deepStrictEqual(user.movieList, [
+      { name: "star wars", movieID: 0, isWatched: false, isRecommended: false },
+    ]);
+  });
 });

@@ -9,6 +9,7 @@ const { handleLogout } = require("./handler/logout-handler");
 const createApp = (userList) => {
   const app = express();
   app.userList = userList;
+  app.ROOT_DIR = process.env.PWD;
 
   app.use(requestLogger);
   app.use(express.urlencoded());

@@ -8,12 +8,21 @@ describe("GET /", () => {
   it("should serve home page", (_, done) => {
     const userList = new UserList();
     const app = createApp(userList);
+    app.ROOT_DIR = process.env.PWD;
 
     request(app)
       .get("/")
       .expect(200)
       .expect("content-type", /text\/html/)
       .end(done);
+  });
+
+  it("should give error status if error occured", (_, done) => {
+    const userList = new UserList();
+    const app = createApp(userList);
+    app.ROOT_DIR = "/invalid-pwd";
+
+    request(app).get("/").expect(500).end(done);
   });
 });
 
