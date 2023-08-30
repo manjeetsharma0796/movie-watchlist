@@ -14,7 +14,7 @@ Now for each user, it will look like:
       > name(required)
       > language(required)
       > genre(optional)
-      > status(optional)
+      > seen(optional)
       > recommended(optional)
 3. Person can delete movie from his/her list
 
