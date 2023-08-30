@@ -23,27 +23,30 @@ const render = (req, res, filePath) => {
   });
 };
 
+const responseHandler = {
+  onSuccess: () => res.redirect("/"),
+  onError: () => res.status(500).end(),
+};
+
 const handleHome = (req, res) => {
   if (!("username" in req.cookies)) {
     res.redirect("/login");
     return;
   }
 
-  const responseHandler = {
-    onSuccess: () => res.redirect("/"),
-    onError: () => res.status(500).end(),
-  };
-
   const status = {
     on: true,
     undefined: false,
   };
-
-  const { username } = req.cookies;
   const { userList } = req.app;
   const { name, isRecommended, isWatched } = req.body;
 
-  userList.addMovie(name, username, status[isWatched], status[isRecommended]);
+  userList.addMovie(
+    name,
+    req.cookies.username,
+    status[isWatched],
+    status[isRecommended]
+  );
 
   updateDatabase(userList.usersDetails, responseHandler);
 };

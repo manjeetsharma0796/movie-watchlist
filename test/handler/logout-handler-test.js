@@ -9,6 +9,6 @@ describe("GET /logout", () => {
     const userList = new UserList();
     const app = createApp(userList);
 
-    request(app).get("/logout").expect(302).end(done);
+    request(app).get("/logout").expect(302).expect("location", "/").end(done);
   });
 });

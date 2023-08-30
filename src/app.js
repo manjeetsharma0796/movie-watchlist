@@ -17,10 +17,14 @@ const createApp = (userList) => {
 
   app.get("/", serveHome);
   app.post("/", handleHome);
+
   app.get("/login", serveLogin);
   app.post("/login", handleLogin);
+
   app.get("/logout", handleLogout);
+
   app.use(express.static("public"));
+
   return app;
 };
 

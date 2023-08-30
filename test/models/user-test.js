@@ -1,5 +1,6 @@
 const { describe, it } = require("node:test");
 const assert = require("assert");
+
 const { User } = require("../../src/models/user");
 
 describe("User", () => {
