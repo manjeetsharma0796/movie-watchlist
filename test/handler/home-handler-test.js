@@ -27,15 +27,38 @@ describe("GET /", () => {
 });
 
 describe("POST /", () => {
-  it("should redirect to login page as no user logged in", (_, done) => {
+  it("redirect to login on adding movie, as no user logged in", (_, done) => {
     const userList = new UserList();
     const app = createApp(userList);
 
     request(app)
       .post("/")
-      .send({ name: "Django" })
+      .set("content-type", "application/x-www-form-urlencoded")
+      .send("name=ironman")
       .expect(302)
       .expect("location", "/login")
       .end(done);
+  });
+
+  it("should login and be able to add movie", (_, done) => {
+    const userList = new UserList();
+    const app = createApp(userList);
+
+    request(app)
+      .post("/login")
+      .set("content-type", "application/x-www-form-urlencoded")
+      .send("username=manjeet")
+      .expect(302)
+      .expect("location", "/")
+      .end(() => {
+        request(app)
+          .post("/")
+          .send("name=ironman")
+          .set("content-type", "application/x-www-form-urlencoded")
+          .set("cookie", "username=manjeet")
+          .expect(302)
+          .expect("location", "/")
+          .end(done);
+      });
   });
 });
