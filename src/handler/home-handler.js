@@ -3,7 +3,7 @@ const fs = require("fs");
 const { generateMovieElement } = require("../element-creator");
 const { updateDatabase } = require("../database");
 
-const render = (req, res, filePath) => {
+const generateMoviePage = (req, res, filePath) => {
   fs.readFile(filePath, "utf-8", (err, rawTemplate) => {
     if (err) {
       console.log("serveLogin: error in reading");
@@ -29,7 +29,6 @@ const handleHome = (req, res) => {
 
   const status = {
     on: true,
-    undefined: false,
   };
   const { userList } = req.app;
   const { name, isRecommended, isWatched } = req.body;
@@ -46,7 +45,7 @@ const handleHome = (req, res) => {
 
 const serveHome = (req, res) => {
   const filePath = `${req.app.ROOT_DIR}/public/index.html`;
-  render(req, res, filePath);
+  generateMoviePage(req, res, filePath);
 };
 
 module.exports = { serveHome, handleHome };

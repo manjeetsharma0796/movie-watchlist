@@ -9,9 +9,9 @@ const readWatchlist = () => {
     fs.writeFileSync(DATABASE_PATH, "[]");
   }
 
-  const watchlist = fs.readFileSync("./watchlist.json", "utf-8");
+  const usersWatchlist = fs.readFileSync("./watchlist.json", "utf-8");
 
-  return JSON.parse(watchlist);
+  return JSON.parse(usersWatchlist);
 };
 
 const updateDatabase = (usersWatchlist, response) => {

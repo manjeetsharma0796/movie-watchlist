@@ -78,3 +78,13 @@ movieList:
 
 -------------
 login have to check if user exists or not
+
+30 to 32 line in home handler
+
+status on will read about documentation to find out to send values of checkbox in terms of boolean value maybe
+
+updateDatabase
+writng it and doing other thing also like redirecting and sending error
+
+solution:
+thinking to implement .then()

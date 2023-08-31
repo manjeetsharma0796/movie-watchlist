@@ -38,7 +38,7 @@ class UserList {
     this.#userList.push(user);
   }
 
-  addMovie(movieName, username, isWatched, isRecommended) {
+  addMovie(movieName, username, isWatched = false, isRecommended = false) {
     const user = this.#findUser(username);
     user.addMovie(movieName, isWatched, isRecommended);
   }
